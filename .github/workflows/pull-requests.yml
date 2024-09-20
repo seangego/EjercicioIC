@@ -45,6 +45,6 @@ jobs:
         uses: "pascalgn/automerge-action@v0.14.3"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "Merge"
+          MERGE_LABELS: "automerge"
           MERGE_COMMIT_MESSAGE: pull-request-title
           MERGE_DELETE_BRANCH: true
