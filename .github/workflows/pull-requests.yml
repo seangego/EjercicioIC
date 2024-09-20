@@ -47,4 +47,6 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_LABELS: "automerge"
           MERGE_METHOD: "merge"
+          UPDATE_LABELS: "automerge"
+          UPDATE_METHOD: "merge"
           MERGE_COMMIT_MESSAGE: pull-request-title
