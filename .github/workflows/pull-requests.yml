@@ -46,5 +46,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          mergeMethod: "squash"  # Método de merge puede ser "merge", "squash" o "rebase"
+          mergeMethod: "merge"  # Metodo de merge puede ser "merge", "squash" o "rebase"
           mergeLabel: "automerge"  # Etiqueta de la PR que disparará el merge
