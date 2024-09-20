@@ -5,10 +5,7 @@ on:
 jobs:
   job1:
     name: Pruebas
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ macos-latest, windows-latest, ubuntu-18.04 ]
+    runs-on: ubuntu-latest
     outputs:
       salida: ${{ steps.imprimir.outputs.respuesta }}
     steps:
