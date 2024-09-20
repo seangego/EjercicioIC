@@ -45,6 +45,3 @@ jobs:
         uses: pascalgn/automerge-action@v0.15.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          mergeMethod: "merge"  # Metodo de merge puede ser "merge", "squash" o "rebase"
-          mergeLabel: "automerge"  # Etiqueta de la PR que disparará el merge
