@@ -42,8 +42,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-        uses: "pascalgn/automerge-action@v0.15.3"
+        uses: pascalgn/automerge-action@v0.15.3
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "automerge"
-          MERGE_METHOD: "merge"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          mergeMethod: "squash"  # Método de merge puede ser "merge", "squash" o "rebase"
+          mergeLabel: "automerge"  # Etiqueta de la PR que disparará el merge
