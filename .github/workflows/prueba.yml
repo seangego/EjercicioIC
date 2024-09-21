@@ -27,12 +27,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.7'
-    - name: Generar token
-      run: |
-        git config user.name "$(git log -1 --pretty=format:'%an')"  # Recupera el nombre del autor del último commit
-        git config user.email "$(git log -1 --pretty=format:'%ae')"  # Recupera el correo del autor del último commit        
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Merge de la rama desarrollo a feature
       run: |
         # git config user.name "$(git log -1 --pretty=format:'%an')"  # Recupera el nombre del autor del último commit
@@ -74,3 +69,5 @@ jobs:
         git pull
         git merge ${{ github.ref_name }} --allow-unrelated-histories
         git push origin dev
+      with:
+        github_token: ${{ secrets.DEPENDABOT_TOKEN }}
