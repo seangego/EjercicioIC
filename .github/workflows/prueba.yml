@@ -19,7 +19,7 @@ jobs:
       run: |
         COMMIT_MESSAGE=$(git log -1 --pretty=%B)
         echo "El mensaje del commit es: $COMMIT_MESSAGE"
-        if [[ "$COMMIT_MESSAGE" != "merge" ]]; then
+        if [[ "$COMMIT_MESSAGE" != *"#merge"* ]]; then
           echo "La palabra clave merge no fue encontrada en el commit. Abortando."
           exit 0
         fi
