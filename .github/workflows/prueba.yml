@@ -35,7 +35,8 @@ jobs:
         git checkout dev
         git pull
         git checkout ${{ github.ref_name }}
-        git merge dev # || exit 1  # Si falla el merge, se detiene
+        git fetch origin
+        git merge origin/dev || exit 1  # Si falla el merge, se detiene
 
     - name: Ejecutar pruebas unitarias
       run: |
