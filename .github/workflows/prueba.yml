@@ -61,9 +61,6 @@ jobs:
 
     - name: Hacer merge de feature a desarrollo si las pruebas pasan
       if: success()
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         # git config user.name "$(git log -1 --pretty=format:'%an')"  # Recupera el nombre del autor del último commit
         # git config user.email "$(git log -1 --pretty=format:'%ae')"  # Recupera el correo del autor del último commit
