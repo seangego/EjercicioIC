@@ -64,5 +64,5 @@ jobs:
         git fetch origin
         git checkout dev
         git pull
-        git merge origin/${{ github.ref_name }} --allow-unrelated-histories
+        git merge ${{ github.ref_name }} --allow-unrelated-histories
         git push origin dev
