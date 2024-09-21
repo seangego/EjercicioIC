@@ -30,10 +30,7 @@ jobs:
     - name: Generar token
       run: |
         git config user.name "$(git log -1 --pretty=format:'%an')"  # Recupera el nombre del autor del último commit
-        git config user.email "$(git log -1 --pretty=format:'%ae')"  # Recupera el correo del autor del último commit
-        git add .
-        git commit -m "Auto commit from GitHub Actions"
-        git push origin main
+        git config user.email "$(git log -1 --pretty=format:'%ae')"  # Recupera el correo del autor del último commit        
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Merge de la rama desarrollo a feature
