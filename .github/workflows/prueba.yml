@@ -61,6 +61,7 @@ jobs:
 
     - name: Hacer merge de feature a desarrollo si las pruebas pasan
       if: success()
+      uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
