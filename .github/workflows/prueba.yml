@@ -18,7 +18,7 @@ jobs:
       run: |
         COMMIT_MESSAGE=$(git log -1 --pretty=%B)
         echo "El mensaje del commit es: $COMMIT_MESSAGE"
-        if [[ "$COMMIT_MESSAGE" != "merge" ]]; then
+        if [[ "$COMMIT_MESSAGE" != "#merge#" ]]; then
           echo "La palabra clave merge no fue encontrada en el commit. Abortando."
           exit 0
         fi
@@ -28,13 +28,12 @@ jobs:
         python-version: '3.7'
     - name: Merge de la rama desarrollo a feature
       run: |
-        git config user.name "$(git log -1 --pretty=format:'%an')"  # Recupera el nombre del autor del último commit
-        git config user.email "$(git log -1 --pretty=format:'%ae')"  # Recupera el correo del autor del último commit
+        # git config user.name "$(git log -1 --pretty=format:'%an')"  # Recupera el nombre del autor del último commit
+        # git config user.email "$(git log -1 --pretty=format:'%ae')"  # Recupera el correo del autor del último commit
         git checkout dev
         git pull
         git checkout ${{ github.ref_name }}
-        git fetch origin
-        git merge origin/dev || exit 1  # Si falla el merge, se detiene
+        git merge dev
 
     - name: Ejecutar pruebas unitarias
       run: |
