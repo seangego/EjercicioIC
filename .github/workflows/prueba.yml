@@ -35,7 +35,7 @@ jobs:
         git checkout dev
         git pull
         git checkout ${{ github.ref_name }}
-        git merge origin/dev
+        git merge origin/dev --allow-unrelated-histories
     - name: Ejecutar pruebas unitarias
       run: |
         pip install -r requirements.txt
