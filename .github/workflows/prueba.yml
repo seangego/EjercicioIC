@@ -61,6 +61,8 @@ jobs:
     - name: Hacer merge de feature a desarrollo si las pruebas pasan
       if: success()
       run: |
+        git fetch origin
         git checkout dev
-        git merge ${{ github.ref_name }}
+        git pull
+        git merge origin/${{ github.ref_name }} --allow-unrelated-histories
         git push origin dev
