@@ -18,7 +18,7 @@ jobs:
       run: |
         COMMIT_MESSAGE=$(git log -1 --pretty=%B)
         echo "El mensaje del commit es: $COMMIT_MESSAGE"
-        if grep -q -E "(fix|merge|feature)" commit_messages.txt; then
+        if grep -q -E "(fix|merge|Merge)" commit_messages.txt; then
           echo "Commit message contains the required keyword."
         else
           echo "Error: Commit message must contain one of the following keywords: fix, update, feature."
