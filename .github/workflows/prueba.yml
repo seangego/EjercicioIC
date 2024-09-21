@@ -8,11 +8,11 @@ jobs:
   detect-keyword-and-merge:
     name: Actualizar rama y ejecutar pruebas
     runs-on: ubuntu-latest
-
+    outputs:
+      salida: ${{ steps.imprimir.outputs.respuesta }}
     steps:
     - name: Checkout del repositorio
       uses: actions/checkout@v2
-
     - name: Verificar si el commit contiene la palabra clave
       id: check-keyword
       run: |
@@ -26,7 +26,7 @@ jobs:
     - name: Configuración de entorno de Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'
+        python-version: '3.7'
 
     - name: Merge de la rama desarrollo a feature
       run: |
