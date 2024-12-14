@@ -10,11 +10,13 @@ on:
       - ready_for_review
       - reopened
       - unlocked
+      - unstable
     branches: [ master ]
 jobs:
   job1:
     name: Pruebas
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - name: Checkout de repositorio
       uses: actions/checkout@v2
@@ -40,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-        uses: "pascalgn/automerge-action@v0.14.3"
+        uses: "pascalgn/automerge-action@04dfc9eae2586d19b7362d4f6413c48135d9c25a"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""
+          MERGE_LABELS: "merge"
